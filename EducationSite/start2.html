@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web技术</title>
+    <!--CSS文件的引入使用超链接的方式  hrefCSS文件的具体位置，rel和rype都是固定值-->
+    <link href="CSS文件/Table.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        #time{
+            margin-top: -5px;
+        }
+
+        #foot{
+            margin-top: 80px;
+
+            font-weight: bolder;
+            font-family: "黑体", "宋体";
+            font-size: 21px;
+            /*color: blue;*/
+
+            text-align: center;
+        }
+    </style>
+</head>
+<body style="background-image: url(CSS文件/Pictures/2.jpg);
+background-repeat: no-repeat;
+background-size: cover" >
+<h1 align="center" style="font-family: 隶书 ; font-size: 36px">欢迎来到Web前端技术课程学习</h1>
+<div id="marquee">
+    <marquee class="mar"  direction="left"><p>web前端开发技术--html5，css3，JavaScript</p></marquee><!--游动字-->
+</div>
+
+<div>
+    <a href="programme.html"><p class="hui2">教学大纲和课程内容的浏览</p></a><!-- p段落自动换行 -->
+    <a href="PPTDownload.html" title="所有上课课件的下载" class="a1"><p class="hui2">课程课件的下载</p></a>
+    <a href="https://www.icourse163.org/course/XJTU-1003679001" title="慕课学习" class="a1"><p class="hui2">网络学习资源--慕课学习</p></a>
+    <a href="VideoDownload.html" title="视频资料的下载" class="a1"><p class="hui2">视频资料的下载</p></a>
+    <a href="answering.jsp" title="留言和回复" class="a1"><p class="hui2">留言模块</p></a>
+    <a href="refresh.html" title="" class="a1"><p class="hui2">刷新</p> </a>
+    <!--        <a href="" title="与老师联系" class="a1"><p class="hui2">联系老师</p></a>-->
+</div>
+
+<div id="foot">
+    <!--        <footer>-->
+    <font>2019山东大学软件学院</font>
+    <!--            <span style="padding:2px 5px;">HTML5中国产业联盟版权所有（傅显坤）</span>-->
+    <!--        </footer>-->
+    <HR style= " FILTER: progid:DXImageTransform.Microsoft.Shadow ( color: #987cb9,direction : 145, strength :15 ) " width = "80%" color = #987cb 9 SIZE= 1>
+    <footer>
+        <p id="time"></p>
+        <script>
+            var time = new Date();
+            var TimerID;
+
+            function getTime(){
+                document.getElementById("time").innerHTML = "现在的时间是："+time.toLocaleString();
+            }
+
+            TimerID=setInterval(getTime,10);
+
+        </script>
+    </footer>
+</div>
+
+</body>
+</html>

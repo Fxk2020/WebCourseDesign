@@ -1,0 +1,174 @@
+p.c1{
+    width:200px;
+    margin:0 auto;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 隶书;
+    background-color: #FF9900;
+}
+p.c2{
+    width:600px;
+    margin:0 auto;
+    text-align: left;<!-- 段落居中显示，段落内左对齐 -->
+    font-size: 16px;
+    font-family: 宋体;
+    background-color: #cad9ea;
+
+    line-height: 28px;
+
+}
+/*类选择器和标记选择器一同使用*/
+p.hui2{
+    text-align: center;
+    color:red;
+    font-family: 宋体;
+    font-size: 15pt;
+    font-weight: bolder;
+<!--文字阴影效果的展示   text-shadow属性 四个参数 -->
+    text-shadow: 10em 2px 6px blue;
+}
+a.a1{
+    background-image: url(Pictures/70.jpg);
+}
+/*类选择器*/
+.mar{
+    font-size: 26px;
+    font-family: 隶书;
+    font-weight: bolder;
+    height: 50px;
+    text-shadow: 0.1em 2px 6px blue;
+}
+#marquee{
+    margin-bottom: 80px;
+}
+p.hui3{
+    text-align: center ;
+    font-size: 15px;
+    font-weight: bolder;
+
+    margin-top: 15px;
+
+<!--文字阴影效果的展示   text-shadow属性 四个参数 -->
+    /*艺术字效果*/
+
+    font-family: "隶书";
+    text-shadow: 5px 5px 5px black;
+    color: red;
+}
+
+.eye_natural{
+    font-size: 12px;
+    font-family: "华文新魏", "隶书";
+    font-weight: bolder;
+
+    margin-bottom: 15px;
+
+}
+
+/*美化按钮*/
+.new_button{
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font: 14px/100% Arial, Helvetica, sans-serif;
+    padding: 5px 2px 4px;
+    text-shadow: 0 1px 1px rgba(0,0,0,.3);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    color: #d9eef7;
+    border: solid 1px #0076a3;
+    background: #0095cd;
+    background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+    background: -moz-linear-gradient(top, #00adee, #00678e);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00adee', endColorstr='#00678e');
+
+    margin-top: 8px;
+
+
+}
+
+button:hover{
+    background: #007ead;
+    background: -webkit-gradient(linear, left top, left bottom, from(#00678e), to(#0095cc));
+    background: -moz-linear-gradient(top, #00678e, #0095cc);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00678e', endColorstr='#0095cc');
+}
+
+
+/*!*表格处理*!*/
+/*table{*/
+/*    width: 260px;*/
+/*    margin-top: 0px;*/
+/*    margin-right: auto;*/
+/*    margin-bottom: 0px;*/
+/*    margin-left: auto;*/
+/*    text-align: center;*/
+/*    background-color: #000000;*/
+
+/*    font-family: 华文新魏;*/
+/*    font-weight: bolder;*/
+
+/*}*/
+/*td{*/
+/*    padding:10px;*/
+/*    background-color: #FFFFFF;*/
+/*}*/
+/*caption{*/
+/*    font-size: 22px;*/
+/*    padding-bottom: 5px;*/
+/*    color: orange;*/
+/*}*/
+/*tr{*/
+/*    font-size: 10px;*/
+/*    background-color: #cad9ea;*/
+/*    color: #000000;*/
+/*}*/
+/*th{*/
+/*    font-size: 12px;*/
+/*    padding: 5px;*/
+/*}*/
+/*td.hui {<!--类名在后 -->*/
+/*    background-color: #f5fafe;*/
+/*}*/
+/*tr:hover td{*/
+/*    background-color: #FF9900;*/
+/*}*/
+
+.download{
+    width: 32px;
+    height: 28px;
+}
+
+.video_new{
+    object-fit: fill;
+
+}
+
+
+a{
+    cursor:pointer;<!--鼠标放在超链上变成手 -->
+}
+
+.adapt2_video{
+
+
+    width: 18px;
+    height: 18px;
+}
+
+/*控制全部的li标签*/
+/*li{*/
+/*    font-size: 15px;*/
+/*    font-weight: bolder;*/
+
+/*    text-align: left;*/
+
+/*}*/
+
+

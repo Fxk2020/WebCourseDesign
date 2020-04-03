@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Video1Download</title>
+    <link href="CSS文件/Table2.css" type="text/css" rel="stylesheet">
+    <link href="CSS文件/new_kinds.css" type="text/css" rel="stylesheet">
+    <link href="CSS文件/1.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="JS/Eyesight.js"></script><!--  -->
+    <style type="text/css">
+        #di0{
+            width: 100%;
+            height: 100%;
+            background-color: #FF9900;
+        }
+        #di1{
+            width: 75%;
+            height: 100%;
+            background-color: #cad9ea;
+            float: left;
+        }
+        #di2{
+            width: 25%;
+            height: 50%;
+            background-color: white;
+            float: right;
+
+            background-image: url("CSS文件/Photos/jiemudan.jpg");
+            background-size: cover;/*对背景图片设置属性：background-size：cover;可以实现背景图片适应div的大小。*/
+
+        }
+        #di3{
+            width: 25%;
+            height: 50%;
+            background-color: #cad9ea;
+            float: right;
+
+        }
+        .font40 {
+
+             font-family: "宋体", "隶书";
+             font-size: 18px;
+             text-shadow: 5px 5px 5px black, 0px 0px 2px red, 2px 2px 3px green;
+
+             text-align: center;
+
+            margin-bottom: 15px;
+
+         }
+        .font41 {
+
+            margin-top: 12px;
+
+            font-family: "宋体", "隶书";
+            font-size: 12px;
+            text-shadow: 5px 5px 5px black, 0px 0px 2px red, 2px 2px 3px green;
+
+            text-align: center;
+
+        }
+        #html{
+
+        }
+        #shilibaohu{
+            margin-top: -17px;
+        }
+    </style>
+        <!--引入jQuery-->
+        <script language="JavaScript"  src="Jquery/jquery-3.4.1.js"></script>
+</head>
+<body>
+
+   <div id="di0">
+
+       <div id="di1">
+
+           <video  id="play" controls="controls" preload="auto" width="100%" height="100%" style="object-fit: fill"><!--视频平铺整个页面   style="object-fit: fill"-->
+               您的浏览器不支持audio标签
+               <source src="Video/HTML1.mp4" type="video/mp4">
+           </video>
+
+       </div>
+
+       <div id="di2">
+
+           <!--更改节目单-->
+           <span class="font40" style="margin-top: 5px"> &nbsp;&nbsp;请选择视频类型：</span>
+           <label>
+               <select id="getVideo">
+                   <option selected = selected value="html">HTML</option>
+                   <option value="css">CSS</option>
+                   <option value="js">JS</option>
+               </select>
+               <input type="button" class="new_button" id="ok" value="确定" onclick="changeVideo()">
+           </label><br>
+
+           <!--节目单：-->
+           <!--html的有关视频-->
+           <br>
+           <br>
+           <br>
+           <br>
+           <br>
+           <div id="html" >
+               <a onclick="getVideo1(1)" target="_self" title="观看视频1"><p align="center" class="font41">观看PHP</p></a><!-- p段落自动换行 -->
+               <a onclick="getVideo2(1)" title="观看视频2"><p class="font41">观看钱德勒尬舞</p></a>
+               <a onclick="getVideo3(1)" title="观看视频3"><p class="font41">观看莫妮卡尬舞</p></a>
+               <a onclick="getVideo4(1)" title="观看视频4"><p class="font41">观看灵狐前传</p></a>
+               <a onclick="getVideo5(1)" title="观看视频5"><p class="font41">观看GTA5</p></a>
+           </div>
+
+           <!--css的有关视频-->
+           <div id="css" >
+               <a onclick="getVideo1(2)" target="_self" title="观看视频1"><p align="center" class="font41">css1</p></a><!-- p段落自动换行 -->
+               <a onclick="getVideo2(2)" title="观看视频2"><p class="font41">css2</p></a>
+               <a onclick="getVideo3(2)" title="观看视频3"><p class="font41">css3</p></a>
+               <a onclick="getVideo4(2)" title="观看视频4"><p class="font41">css4</p></a>
+               <a onclick="getVideo5(2)" title="观看视频5"><p class="font41">css5</p></a>
+           </div>
+
+           <!--js的有关视频-->
+           <div id="js">
+               <a onclick="getVideo1(3)" target="_self" title="观看视频1"><p align="center" class="font41">js1</p></a><!-- p段落自动换行 -->
+               <a onclick="getVideo2(3)" title="观看视频2"><p class="font41">js2</p></a>
+               <a onclick="getVideo3(3)" title="观看视频3"><p class="font41">js3</p></a>
+               <a onclick="getVideo4(3)" title="观看视频4"><p class="font41">js4</p></a>
+               <a onclick="getVideo5(3)" title="观看视频5"><p class="font41">js5</p></a>
+           </div>
+
+       </div>
+
+
+       <div id="di3">
+          <!--改用列表处理-->
+
+           <!-- 利用超链接创建书签 实现视频文件的下载-->
+           <p class="ppppp"><img src="CSS文件/Photos/视频下载.jpg" class="adapt2_video">视频资源下载：</p>
+           <!--视力保护色-->
+           <div id="shilibaohu">
+               <span style="padding-left: 50px" > <span class="eye_natural" >视力保护色 ：</span>
+               <input onclick="ChangeColor('#F9F6AF')" type="image" src="CSS文件/Pictures/1.PNG" height="13px" width="13px">
+               <input onclick="ChangeColor('#DEDEDE')" type="image" src="CSS文件/Pictures/2.PNG" height="13px" width="13px">
+               <input onclick="ChangeColor('#F9D1D9')" type="image" src="CSS文件/Pictures/3.PNG" height="13px" width="13px">
+               <input onclick="ChangeColor('#E4C8F8')" type="image" src="CSS文件/Pictures/4.PNG" height="13px" width="13px">
+           </span>
+           </div>
+
+           <!--html资源下载-->
+           <div id="download_html">
+               <ul class="ul_nature">
+                   <!--href下载连接，download显示的名称！要带扩展名-->
+                   <li class="li_new"><a href="Video/HTML1.mp4" download="HTML1.mp4" title="视频一下载" class="a3">PHP</a></li>
+                   <li class="li_new"><a href="Video/HTML2.mp4" download="HTML2.mp4" title="视频二下载" class="a3">钱德勒尬舞</a></li>
+                   <li class="li_new"><a href="Video/HTML3.mp4" download="HTML3.mp4" title="视频三下载" class="a3">莫妮卡尬舞</a></li>
+                   <li class="li_new"><a href="Video/HTML4.mp4" download="HTML4.mp4" title="视频四下载" class="a3">灵狐前传</a></li>
+                   <li class="li_new"><a href="Video/HTML5.mp4" download="HTML5.mp4" title="视频五下载" class="a3">GTA5</a></li>
+               </ul>
+           </div>
+
+           <!--css资源下载-->
+           <div id="download_css">
+               <ul class="ul_nature">
+                   <!--href下载连接，download显示的名称！要带扩展名-->
+                   <li class="li_new"><a href="Video/css1.mp4" download="CSS1.mp4" title="视频一下载" class="a3">css1</a></li>
+                   <li class="li_new"><a href="Video/css2.mp4" download="CSS2.mp4" title="视频二下载" class="a3">css2</a></li>
+                   <li class="li_new"><a href="Video/css3.mp4" download="CSS3.mp4" title="视频三下载" class="a3">css3</a></li>
+                   <li class="li_new"><a href="Video/css4.mp4" download="CSS4.mp4" title="视频四下载" class="a3">css4</a></li>
+                   <li class="li_new"><a href="Video/css5.mp4" download="CSS5.mp4" title="视频五下载" class="a3">css5</a></li>
+               </ul>
+
+           </div>
+
+           <!--js资源下载-->
+           <div id="download_js">
+               <ul class="ul_nature">
+               <!--href下载连接，download显示的名称！要带扩展名-->
+               <li class="li_new"><a href="Video/js1.mp4" download="js1.mp4" title="视频一下载" class="a3">js1</a></li>
+               <li class="li_new"><a href="Video/js2.mp4" download="JS2.mp4" title="视频二下载" class="a3">js2</a></li>
+               <li class="li_new"><a href="Video/js3.mp4" download="JS3.mp4" title="视频三下载" class="a3">js3</a></li>
+               <li class="li_new"><a href="Video/js4.mp4" download="JS4.mp4" title="视频四下载" class="a3">js4</a></li>
+               <li class="li_new"><a href="Video/js5.mp4" download="JS5.mp4" title="视频五下载" class="a3">js5</a></li>
+               </ul>
+           </div>
+
+           <!--控制初始时需要显示和隐藏的控件-->
+           <script>
+               $('#html').show();
+               $('#css').hide();
+               $('#js').hide();
+
+               $('#download_html').show();
+               $('#download_css').hide();
+               $('#download_js').hide();
+           </script>
+
+       </div>
+   </div>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+ul.u1{
+    text-align: left;<!-- 段落内左对齐 -->
+    width: 700px;
+    margin:0 auto;;
+}
+h1.h1{
+    <!--这三行代码实现了全部居中显示但是块内左对齐 -->
+    text-align: left;
+    font-size: 40px;
+    font-family: 隶书;
+    width: 600px;
+    margin:0 auto;;
+}
+.container{
+    text-align: center;
+    width: 1400px;
+    height: auto;
+}
+.container ul{
+    display: table;
+    margin: 0 auto;
+    padding: 10px;
+}
+.u1 li{
+    font-size: 22px;
+    font-family: 宋体;
+    font-weight: bolder;
+
+    line-height: 1.5em;
+    letter-spacing: 2px;
+}
+
+.stu{
+    margin-top: 10px;
+    height: 250px;
+    width: 600px;
+
+}

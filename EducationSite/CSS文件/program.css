@@ -1,0 +1,22 @@
+.p1{
+    /*text-shadow: 0.1em 2px 6px blue;*/
+    font-size: 22px;
+    font-family:  "宋体","隶书";
+    font-weight: bolder;
+
+    color:orange;
+    /*整体居中，段落内左对齐*/
+    text-align: left;
+    width: 300px;
+    margin:0 auto;
+    background-color: #cad9ea;
+
+    line-height: 1.5em;
+
+    word-spacing: -5px;/**/
+    letter-spacing: 1px;
+
+    /*text-decoration: line-through;!*横贯线的效果*!*/
+    text-decoration: blink;
+
+}

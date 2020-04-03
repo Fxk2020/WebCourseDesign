@@ -1,0 +1,91 @@
+/*标记选择器*/
+table{
+    width: 600px;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+    text-align: center;
+    background-color: #000000;
+    font-size: 9pt;
+
+}
+td{
+    padding: 5px;
+    background-color: #FFFFFF;
+}
+caption{
+    font-size: 36px;
+    font-family: "黑体","宋体";
+    padding-bottom: 15px;
+}
+tr{
+    font-size: 13px;
+    background-color: #cad9ea;
+    color: #000000;
+}
+th{
+    padding: 5px;
+}
+td.hui {<!--类名在后 -->
+    background-color: #f5fafe;
+}
+tr:hover td{
+    background-color: #FF9900;
+}
+p.c1{
+    width:200px;
+    margin:0 auto;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 隶书;
+    background-color: #FF9900;
+}
+p.c2{
+    width:600px;
+    margin:0 auto;
+    text-align: left;<!-- 段落居中显示，段落内左对齐 -->
+    font-size: 16px;
+    font-family: 宋体;
+    background-color: #cad9ea;
+
+    line-height: 28px;
+
+    }
+/*类选择器和标记选择器一同使用*/
+p.hui2{
+    text-align: center;
+    color:red;
+    font-family: 宋体;
+    font-size: 15pt;
+    font-weight: bolder;
+
+    margin-bottom: 20px;
+
+    <!--文字阴影效果的展示   text-shadow属性 四个参数 -->
+    text-shadow: 10em 2px 6px blue;
+}
+a.a1{
+    background-image: url(Pictures/70.jpg);
+}
+/*类选择器*/
+.mar{
+    font-size: 26px;
+    font-family: 隶书;
+    font-weight: bolder;
+    height: 50px;
+    text-shadow: 0.1em 2px 6px blue;
+}
+#marquee{
+    margin-bottom: 80px;
+}
+p.hui3{
+    text-align: center;
+    color:black;
+    font-family: 宋体;
+    font-size: 15pt;
+    font-weight: bolder;
+<!--文字阴影效果的展示   text-shadow属性 四个参数 -->
+    text-shadow: 10em 2px 6px blue;
+}
+

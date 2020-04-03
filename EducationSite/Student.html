@@ -1,0 +1,640 @@
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>
+        山东大学学生管理系统
+    </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <meta name="description" content="Static &amp; Dynamic Tables" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="/static/ace.css" />
+    <!-- basic scripts -->
+    <!--[if !IE]> -->
+    <script src="/scripts/ace/js/jquery/jquery-2.1.1.min.js"></script>
+    <script src="/scripts/String2MD5.js"></script>
+
+    <!-- <![endif]-->
+
+    <!--[if !IE]> -->
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='/scripts/ace/js/jquery.min.js'>"+"<"+"/script>");
+    </script>
+    <!-- <![endif]-->
+
+
+    <!--[if IE]>
+    <script src="/scripts/ace/js/jquery/jquery-1.11.1.min.js"></script>
+    <![endif]-->
+    <script src="/scripts/ace/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="/scripts/ace/js/bootbox.min.js"></script>
+    <script src="/scripts/ace/js/ace-extra.min.js"></script>
+    <script type="text/javascript">
+        function hitTree(action, code,e){
+            if(action != 'null'){
+                document.getElementById('right').contentWindow.location = action;
+
+                var idArr = new Array();
+                var codeArr = code.split("-");
+                for(var i=0; i<codeArr.length; i++){
+                    if(i != 0)
+                        idArr[i] = idArr[i-1] + "-" + codeArr[i];
+                    else
+                        idArr[i] = codeArr[i];
+                }
+
+                var topNavigation = document.getElementById('topNavigation');
+                for(var j=1; j<topNavigation.childNodes.length; i++){
+                    topNavigation.removeChild(topNavigation.childNodes[j]);
+                }
+                for(var i=0; i<idArr.length; i++){
+                    var content = document.getElementById(idArr[i]).innerHTML;
+                    var li = document.createElement("li");
+                    li.innerHTML = content;
+                    topNavigation.appendChild(li);
+                }
+            }
+            leftHeightScroll(e.pageY);
+        }
+        /*function iFrameHeight() {
+            var ifm= document.getElementById("right");
+            var subWeb = document.frames ? document.frames["right"].document :ifm.contentDocument;
+            if(ifm != null && subWeb != null) {
+                ifm.height = subWeb.body.scrollHeight;
+                 ifm.width = subWeb.body.scrollWidth;
+                var ifmwidth = document.documentElement.clientWidth -190;
+                if(ifm.width>ifmwidth+50){
+                    ifm.setAttribute("scrolling","auto");
+                    ifm.style.width = ifmwidth-20;
+                }
+            }
+        }*/
+        /* 	//iframe自适应浏览器高度
+            window.onload = function (){
+                var screenHeight = document.documentElement.clientHeight-150;//当前父窗口高度
+                window.document.getElementById('right').style.height= screenHeight + 'px';
+            } */
+        //退出
+
+
+        function logout(){
+            //document.mainForm.action='/j_acegi_logout.do';
+            document.mainForm.action='/student.do?m=beforeLogout';
+            document.mainForm.submit();
+        }
+
+        function mdkey(s){
+            var str = new String(s);
+            str=str+"urp";
+            return str;
+        }
+
+
+        function xxls() {
+            var action = "/sys_xxjlb.sys_xxjlb.do?m=index";
+            document.getElementById('right').contentWindow.location = action;
+        }
+
+        function refreshLocal(){
+            var action = "/startshow.do?m=startShow";
+            document.getElementById('right').contentWindow.location = action;
+        }
+
+        // 子inframe调用父iframe的方法
+        function redirectPage(redaction){
+            document.getElementById('right').contentWindow.location = redaction;
+        }
+        function changeWid(hei){
+            $("#right").css("height",hei);  //rightCon为包iframe的div；
+        }
+        //查看通知列表信息
+        function showtzindex() {
+            $("#parent-id").attr("src","tzgl.sys_tzb.do?m=index");
+        }
+        function fh(){
+            var frm = window.document.forms[0];
+            frm.action = "student.do";
+            frm.m.value = "index";
+            frm.submit();
+
+        }
+        function chooseRole(){
+            var frm = window.document.forms[0];
+            frm.action = "student.do";
+            frm.m.value = "changeLoginRole";
+            frm.submit();
+        }
+
+        jQuery(document).ready(function(){
+            jQuery("#xgmmId").click(function(){
+                jQuery("#xgmmId").attr("href","");
+                jQuery("#xgmmId").attr("href","#modal-table");
+                /*$("#p_ysmm_err").html("");
+                $("#p_xmm_err").html("");
+                $("#p_xmmqr_err").html("");*/
+            });
+        });
+        function choiceDoReset(){
+            $("#p_ysmm").val("");
+            $("#p_xmm").val("");
+            $("#p_xmmqr").val("");
+        }
+
+        function setxmm(){
+            $("#p_xmm_err").html("");
+        }
+        function setxmmqr(){
+            $("#p_xmmqr_err").html("");
+        }
+        function valiXmm(){
+            var p_xmm = $.trim($("#p_xmm").val());
+            if (p_xmm == ""){
+                $("#p_xmm_err").html("新密码不为空。");
+                $("#p_xmm").focus();
+            }else if(!isValidate(p_xmm)){
+                $("#p_xmm_err").html("新密码字符长度不小于8位，数字、大小写字母。");
+                $("#p_xmm").focus();
+            }else if (p_ysmm == p_xmm){
+                $("#p_xmm_err").html("原始密码与新密码不能一致。");
+                $("#p_xmm").focus();
+            } else{
+                $("#p_xmm_err").html("");
+            }
+        }
+
+        function valiXmQr(){
+            var p_xmm = $.trim($("#p_xmm").val());
+            var p_xmmqr = $.trim($("#p_xmmqr").val());
+            if (p_xmmqr == ""){
+                $("#p_xmmqr_err").html("确认新密码不为空。");
+                $("#p_xmmqr").focus();
+            }else if(!isValidate(p_xmmqr)){
+                $("#p_xmmqr_err").html("新密码字符长度不小于8位，数字和大小写字母。");
+                $("#p_xmmqr").focus();
+            }else if (p_xmm != p_xmmqr){
+                $("#p_xmmqr_err").html("两次输入新密码不一致。");
+                $("#p_xmmqr").focus();
+            } else{
+                $("#p_xmmqr_err").html("");
+            }
+        }
+        function doSavePwd(){
+            var p_ysmm = $.trim($("#p_ysmm").val());
+            var p_xmm = $.trim($("#p_xmm").val());
+            var p_xmmqr = $.trim($("#p_xmmqr").val());
+
+            if(p_ysmm != ""){
+                checkYsmm();
+            }
+
+            var ifshow = true;
+            if(p_ysmm == ""){
+                $("#p_ysmm_err").html("原始密码不为空。");
+                $("#p_ysmm").focus();
+                ifshow = false;
+            }else{
+                $("#p_ysmm_err").html("");
+            }
+            if (p_xmm == ""){
+                $("#p_xmm_err").html("新密码不为空。");
+                $("#p_xmm").focus();
+                ifshow = false;
+            }else if(!isValidate(p_xmm)){
+                $("#p_xmm_err").html("新密码字符长度不小于8位，数字和大小写字母。");
+                $("#p_xmm").focus();
+                ifshow = false;
+            }else if (p_ysmm == p_xmm){
+                $("#p_xmm_err").html("原始密码与新密码不能一致。");
+                $("#p_xmm").focus();
+                ifshow = false;
+            } else{
+                $("#p_xmm_err").html("");
+            }
+            if (p_xmmqr == ""){
+                $("#p_xmmqr_err").html("确认新密码不为空。");
+                $("#p_xmmqr").focus();
+                ifshow = false;
+            }else if(!isValidate(p_xmmqr)){
+                $("#p_xmmqr_err").html("确认新密码字符长度不小于8位，数字和大小写字母。");
+                $("#p_xmmqr").focus();
+                ifshow = false;
+            }else if (p_xmm != p_xmmqr){
+                $("#p_xmmqr_err").html("两次输入新密码不一致。");
+                $("#p_xmmqr").focus();
+                ifshow = false;
+            } else{
+                $("#p_xmmqr_err").html("");
+            }
+
+            if(!ifshow){
+                return;
+            }
+            $.ajax({
+                url:'/xsxx.xs_xsxx_view.do?m=doSavePwd',
+                data:{
+                    p_xmm : p_xmm
+                },
+                success:function(data){
+                    if(data=="ok"){
+
+                        document.mainForm.action='/j_acegi_logout.do';
+                        document.mainForm.submit();
+                    }else{
+                        bootbox.alert("修改密码失败,请稍后再试!");
+                    }
+                }
+            });
+        }
+        //验证原始密码是否正确
+        function checkYsmm(){
+            var p_ysmm = $.trim($("#p_ysmm").val());
+            var ysmm= MD5(mdkey(p_ysmm));
+            if(p_ysmm != ""){
+                $.ajax({
+                    url:'/xsxx.xs_xsxx_view.do?m=checkYsmm',
+                    data:{
+                        p_ysmm : ysmm
+                    },
+                    success:function(data){
+                        if(data=="ok"){
+                            $("#p_ysmm_err").html("");
+                        }else if(data=="no"){
+                            $("#p_ysmm_err").html("原始密码输入不正确。");
+                        }
+                    }
+                });
+            }
+        }
+        // 验证密码是否有效
+        function isValidate(s) {
+            var re = new RegExp("^(?=.*[0-9].*)(?=.*[A-Z].*)(?=.*[a-z].*).{8,20}$");
+            return re.test(s);
+        }
+        function iFrameHeight(){
+            var right= document.getElementById("right");
+            alert(right.height);
+        }
+    </script>
+
+    <style>
+        a {
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        #right {
+            overflow: hidden;
+        }
+        #page-content {
+            position:absolute;
+            width:100%;
+            height:100%;
+            overflow:auto;
+        }
+        .isred{
+            color:#F00;
+            font-size:13
+        }
+    </style>
+</head>
+
+<body class="no-skin">
+<form name="mainForm" action="" method="post">
+    <input type="hidden" name="m" value="">
+</form>
+<input type="hidden" id='username' value="201800301153" />
+<div id="navbar" class="navbar navbar-default">
+    <script type="text/javascript">
+        try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+    </script>
+    <div class="navbar-container" id="navbar-container">
+        <button type="button" class="navbar-toggle menu-toggler pull-left"
+                id="menu-toggler">
+            <span class="sr-only">Toggle sidebar</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+        <div class="navbar-container" id="navbar-container">
+            <div class="navbar-header pull-left">
+                <a class="navbar-brand"> <small> <img
+                        src="/image/school/sdu_logo.png"  style="width:29px;height:26px;"/>
+                    学生工作管理系统 </small> </a>
+            </div>
+            <input type="hidden" id="fdykg" value="" />
+            <div class="navbar-buttons navbar-header pull-right"
+                 role="navigation" id="ss">
+                <ul class="nav ace-nav">
+
+
+                    <!-- 返回首页面-->
+                    <li class="purple">
+                        <a data-toggle="dropdown" class="dropdown-toggle"
+                           onclick="fh()"> <i
+                                class="ace-icon fa fa-tachometer"></i> 首页 </a>
+                    </li>
+
+                    <!-- 提醒 -->
+                    <li class="orange">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#"
+                        > <i
+                                class="ace-icon fa fa-bell icon-animated-bell"></i> <span
+                                class="badge badge-important">0</span> </a>
+                        <ul
+                                class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+                            <li class="dropdown-header">
+                                <i class="ace-icon fa fa-envelope-o"></i> 0 条未读信息
+                            </li>
+
+                            <li class="dropdown-content">
+                                <ul class="dropdown-menu dropdown-navbar">
+
+                                </ul>
+                            </li>
+                            <li class="dropdown-footer">
+                                <a onclick="xxls()">
+                                    查看全部消息
+                                    <i class="ace-icon fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- 邮件 -->
+                    <li class="green">
+                        <a data-toggle="dropdown" class="dropdown-toggle"> <i
+                                class="ace-icon fa fa-envelope icon-animated-vertical"></i> <span
+                                class="badge badge-success">0</span> </a>
+                    </li>
+
+
+
+
+
+
+                    <li class="light-blue">
+                        <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+									<span class="user-info tooltip-warning" data-rel="tooltip"
+                                          data-placement="left" title="学生"> <small>欢迎您,傅显坤</small>
+										201800301153 </span> <i class="ace-icon fa fa-caret-down"></i>
+                        </a>
+
+                        <ul
+                                class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                            <!-- <li>
+                                <a href="#">
+                                    <i class="ace-icon fa fa-cog"></i>
+                                    Settings
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="profile.html">
+                                    <i class="ace-icon fa fa-user"></i>
+                                    Profile
+                                </a>
+                            </li>
+
+                            <li class="divider"></li> -->
+
+                            <!-- 退出 -->
+                            <li>
+                                <a href="#" data-toggle="modal" id="xgmmId">
+                                    <i class="ace-icon fa fa-pencil"></i>修改密码 </a>
+                                <a onclick="logout()"> <i class="ace-icon fa fa-power-off"></i>
+                                    退出 </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-container -->
+    </div>
+    <!-- /.navbar-container -->
+</div>
+
+<div id="modal-table" class="modal fade" style="cursor: move;"
+     z-index="0" tabindex="-1">
+    <div class="modal-dialog" style="width:800px;">
+        <div class="modal-content">
+            <div class="modal-header no-padding" class="white">
+                <div class="table-header" style="background-color: #FFFFFF">
+                    <button type="button" id="closemodal" class="close red" data-dismiss="modal"
+                            aria-hidden="true">
+                        <span class="">&times;</span>
+                    </button>
+                    <span class="blue">修改密码</span>
+                </div>
+            </div>
+
+            <div class="modal-body">
+                <div class="profile-user-info profile-user-info-striped">
+                    <div class="profile-info-row">
+                        <div class="profile-info-name">
+                            原始密码
+                        </div>
+                        <div class="profile-info-value">
+									<span class="editable"> <input
+                                            class="col-xs-12 col-sm-6" style="width: 173px;" onchange="checkYsmm()"
+                                            type="password" id="p_ysmm" name="p_ysmm" maxlength="20"
+                                            value="" /> <label id="p_ysmm_err" class="isred">  </label> </span>
+                        </div>
+                    </div>
+                    <div class="profile-info-row">
+                        <div class="profile-info-name">
+                            新密码
+                        </div>
+                        <div class="profile-info-value">
+									<span class="editable"> <input
+                                            class="col-xs-12 col-sm-6" style="width: 173px;"
+                                            type="password" id="p_xmm" name="p_xmm" maxlength="20"
+                                            value=""  onchange="valiXmm()"  onblur="setxmm()"/> <label id="p_xmm_err" class="isred">  </label> </span>
+                        </div>
+                    </div>
+                    <div class="profile-info-row">
+                        <div class="profile-info-name">
+                            确认新密码
+                        </div>
+                        <div class="profile-info-value">
+									<span class="editable"> <input
+                                            class="col-xs-12 col-sm-6" style="width: 173px;"
+                                            type="password" id="p_xmmqr" name="p_xmmqr" maxlength="20"
+                                            value="" onchange="valiXmQr()" onblur="setxmmqr()"/> <label id="p_xmmqr_err" class="isred">  </label> </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="space space-8"></div>
+                <div class="modal-footer no-margin-top">
+                    <div style="width: 260px; margin-left: 120px;">
+                        <div class="btn btn-sm btn-purple pull-left" type="reset"
+                             onClick="choiceDoReset();">
+                            <i class="ace-icon fa fa-retweet"></i> 重&nbsp;&nbsp;置
+                        </div>
+                        <div class="btn btn-sm btn-info pull-right "
+                             onClick="doSavePwd();" >
+                            <i class="ace-icon fa fa-pencil"></i> 确&nbsp;&nbsp;认
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-body -->
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- modal-dialog -->
+</div>
+
+<div class="main-container" id="main-container" >
+    <script type="text/javascript">
+        try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+    </script>
+    <!-- 导航 -->
+    <div id="sidebar" class="sidebar responsive">
+        <script type="text/javascript">
+            try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+        </script>
+        <ul class="nav nav-list">
+            <li class="active">
+                <!-- 一级菜单 -->
+                <a> <i class="menu-icon fa fa-bank"></i> <span
+                        class="menu-text">学工系统</span> </a>
+                <b class="arrow"></b>
+            </li>
+            <li class="" id="">
+                <!-- 二级菜单 -->
+                <a href="#" class="dropdown-toggle" onclick="fh();">
+                    <i class="menu-icon fa fa-desktop"></i>
+                    <span class="menu-text" id="">我的桌面</span>
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+
+                <a href="#" class="dropdown-toggle" onclick="showtzindex();">
+                    <i class="menu-icon fa fa-bullhorn"></i>
+                    <span class="menu-text" id="">我的通知</span>
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+
+                <b class="arrow"></b>
+        </ul>
+        <!-- /.nav-list -->
+        <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+            <i class="ace-icon fa fa-angle-double-left"
+               data-icon1="ace-icon fa fa-angle-double-left"
+               data-icon2="ace-icon fa fa-angle-double-right"></i>
+        </div>
+    </div>
+    <!-- 右侧内容开始部分 -->
+    <div class="main-content"  >
+        <div class="page-content" id="page-content-id" >
+
+            <iframe src="/startshow.do?m=startShow" frameborder="0" scrolling="no" id="parent-id" ></iframe>
+
+
+
+        </div>
+    </div>
+
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+    </a>
+    <div id="modal-aa" class="modal fade" style="cursor: move;"
+         z-index="0" tabindex="-1">
+
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="widget-header">
+                    <button type="button" class="close red" data-dismiss="modal" onclick="webSocket.onclose(1);"
+                            aria-hidden="true">
+                        <span>&times;</span>
+                    </button>
+                    <h4 class="widget-title lighter smaller">
+                        <i class="ace-icon fa fa-comment blue"></i> 聊天框
+                    </h4>
+                </div>
+
+                <div class="widget-body">
+                    <div class="widget-main no-padding">
+                        <div class="xxaa">
+                            <div class="widget-body">
+                                <div class="widget-main no-padding">
+                                    <div class="dialogs">
+                                        <div id="content"></div>
+                                        <div id="content1"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <div class="input-group">
+												<textarea id="textMessage" class="form-control"
+                                                          name="message"></textarea>
+                                <input id="xnxi" name="message" type="hidden" value="201800301153&10.27.242.247">
+                                <span class="input-group-btn">
+													<button class="btn btn-sm btn-info no-radius" type="button"
+                                                            onclick="sendMyM()">
+														<i class="ace-icon fa fa-share"></i> 发送
+													</button> </span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /.widget-main -->
+                </div>
+                <!-- /.widget-body -->
+            </div>
+            <!-- /.widget-box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- 查看全部信息 -->
+</div>
+<!-- /.main-container -->
+
+
+
+<script src="/scripts/ace/js/jquery-ui.custom.min.js"></script>
+<script src="/scripts/ace/js/jquery.ui.touch-punch.min.js"></script>
+<script src="/scripts/js/websocket2.js"></script>
+<!-- ace scripts -->
+<script src="/scripts/ace/js/ace-elements.min.js"></script>
+<script src="/scripts/ace/js/ace.min.js"></script>
+<script type="text/javascript">
+    jQuery(function($) {
+        //刷新显示首页信息
+        //refreshLocal();
+        $('.xxaa').ace_scroll({
+            size : 350
+        });
+        //$("#page-content").niceScroll("#right",{railalign:'right',cursorcolor:"#8A8A8A",cursoropacitymax:0.7,boxzoom:true,touchbehavior:true});  // This is an IFrame (iPad compatible)
+        $("#parent-id").attr("width",$("#page-content-id").width());
+        //$("#parent-id").attr("height",$("#main-container").height());
+    });
+
+
+
+</script>
+
+</body>
+</html>

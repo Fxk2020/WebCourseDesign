@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Browse</title>
+    <script type="text/javascript" src="JS/PPT.js"></script>
+    <link type="text/css" href="CSS文件/PPTBrose.css" rel="stylesheet">
+
+
+<!--javascript代码-->
+
+    <style type="text/css">
+        #di0{
+            width: 100%;
+            height: 100%;
+            background-color: #FF9900;
+        }
+        #di1{
+            width: 75%;
+            height: 840px;
+            background-color: #cad9ea;
+            float: left;
+
+            /*!*使图片平铺*!*/
+            /*background-image: url("CSS文件/Photos/jiazaineirong.png");*/
+            /*background-repeat: repeat-x;*/
+            /*background-size:100% 100%;*/
+
+        }
+        #di2{
+            width: 25%;
+            height: 550px;/*为了能有下拉框，高度的属性必须为绝对值*/
+            background-color: #cad9ea;
+            float: right;
+
+            /*overflow-y: auto;!*div能够有下拉框*!*/
+
+        }
+        #di3{
+            width: 25%;
+            height: 300px;/*为了能有下拉框，高度的属性必须为绝对值*/
+            background-color: #f5fafe;
+            float: right;
+
+            overflow-y: auto;/*div能够有下拉框*/
+
+        }
+        .font4 {
+
+            font-family: "宋体", "隶书";
+            font-size: 25px;
+            text-shadow: 5px 5px 5px black, 0px 0px 2px red, 2px 2px 3px green;
+
+            text-align: center;
+
+        }
+        .font2  {
+            font-size: 16px;
+            text-shadow: 5px 5px 5px black;
+            color: red;
+
+            font-family: "华文新魏", "隶书";
+
+        }
+        .font3 {
+            font-size: 12px;
+            text-shadow: 5px 5px 5px black, 0px 0px 2px black; /* 没错这里设置了两个 shadow */
+            color: white;
+
+            font-weight: bolder;
+            font-family: "宋体", "隶书";
+
+        }
+
+        /*全部超链接显示为小手的形状*/
+        a{
+             cursor:pointer;
+        }
+
+        .gcs-checkbox {
+
+            display: none;
+
+        }
+
+        /*复选框的美化*/
+        .gcs-checkbox+label {
+
+            background-color: white;
+
+            border-radius: 0px;
+
+            border: 1px solid #d3d3d3;
+
+            width: 20px;
+
+            height: 20px;
+
+            display: inline-block;
+
+            text-align: center;
+
+            vertical-align: bottom;
+
+            line-height: 20px;
+
+        }
+
+        .gcs-checkbox+label:hover {
+
+            cursor: pointer;
+
+            border: 1px solid #2783FB;
+
+        }
+
+        .gcs-checkbox:checked+label {
+
+            background-color: #eee;
+
+            background: #2783FB;
+
+        }
+
+        .gcs-checkbox:checked+label:after {
+
+            content: "\2714";
+
+            color: white;
+
+        }
+
+
+        /*控制下载前的文字美观*/
+        .new_font{
+            font-size: 16px;
+            font-family: "Adobe Caslon Pro Bold","Adobe Caslon Pro";
+            font-weight: bold;
+
+            margin-right: 5px;
+
+            display: inline;/*控制段落不换行*/
+
+        }
+
+        input{
+            margin-bottom: 5px;
+        }
+        label{
+            margin-top: 5px;
+        }
+        #iFrame{
+
+        }
+
+    </style>
+
+<!--引入jQuery和jquery.media插件-->
+    <script language="JavaScript"  src="Jquery/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="Jquery/jquery.media.js"></script>
+</head>
+<body>
+
+     <div id="di0">
+         <div id="di1">
+             <!--以PDF的形式展示-->
+             <iframe id="iFrame" src="PDF/HTML-1.pdf" width="100%" height="100%">
+
+                 This browser does not support PDFs. Please download the PDF to view it: <a href="PDF/HTML-1.pdf">Download PDF</a>
+
+             </iframe>
+         </div>
+
+         <div id="di2">
+
+             <!--浏览ppt-->
+             <p class="font4" style="font-size: 22px">请选择要浏览的PPt</p>
+             <h2 class=font2>1.Html5的有关内容:</h2>
+             <ul >
+                 <li><p class="font3"><a onclick="changeSrc(1)">Html01</a></p></li>
+                 <li><p class="font3"><a onclick="changeSrc(2)" >Html02</a></p></li>
+             </ul>
+
+             <h2 class=font2>2.CSS3的有关内容:</h2>
+             <ul >
+                 <li><p class="font3"><a onclick="changeSrc(3)" >CSS01</a></p></li>
+                 <li><p class="font3"><a onclick="changeSrc(4)"> CSS02</a></p></li>
+                 <li><p class="font3"><a onclick="changeSrc(5)"> CSS03</a></p></li>
+             </ul>
+
+             <h2 class=font2>3.JS的有关内容:</h2>
+             <ul >
+                 <li><p class="font3"><a onclick="changeSrc(6)" >JS01</a></p></li>
+                 <li><p class="font3"><a onclick="changeSrc(7)"> JS02</a></p></li>
+             </ul>
+
+             <h2 class=font2>4.后端的有关内容:</h2>
+             <ul >
+                 <li><p class="font3"><a onclick="changeSrc(8)" >Servlet</a></p></li>
+                 <li><p class="font3"><a onclick="changeSrc(9)">JSP</a></p></li>
+             </ul>
+
+         </div>
+
+         <div id="di3">
+             <!--下载ppt-->
+             <p class="font4" style="font-size: 22px">请选择下载的具体内容：</p>
+
+             <p class="font2">1.前端的有关内容：</p>
+             <form class="Forms">
+                 <!--label 的 for 属性表示label与那个表单联系在一起-->
+                 <p class="new_font">HTML01</p><input type="checkbox" id="1" name="ppt" value="01" class="gcs-checkbox"><label for="1"></label><br>
+                 <p class="new_font">HTML02</p><input type="checkbox" id="2" name="ppt" value="02" class="gcs-checkbox"><label for="2"></label><br>
+                 <p class="new_font">CSS01</p><input type="checkbox" id="3" name="ppt" value="03" class="gcs-checkbox"><label for="3"></label><br>
+                 <p class="new_font">CSS02</p><input type="checkbox" id="4" name="ppt" value="04" class="gcs-checkbox"><label for="4"></label><br>
+                 <p class="new_font">CSS03</p><input type="checkbox" id="5" name="ppt" value="05" class="gcs-checkbox"><label for="5"></label><br>
+                 <p class="new_font">JS01</p><input type="checkbox" id="6" name="ppt" value="06" class="gcs-checkbox"><label for="6"></label><br>
+                 <p class="new_font">JS02</p><input type="checkbox" id="7" name="ppt" value="07" class="gcs-checkbox"><label for="7"></label><br>
+             </form>
+
+             <p class="font2">2.后端的有关内容：</p>
+             <form class="Forms">
+                 <p class="new_font">Servlet</p><input type="checkbox" id="8" name="ppt" value="08" class="gcs-checkbox"><label for="8"></label> <br>
+                 <p class="new_font">JSP</p><input type="checkbox" id="9" name="ppt" value="09" class="gcs-checkbox"><label for="9"></label> <br>
+                 <p class="new_font">会话JDBC</p><input type="checkbox" id="10" name="ppt" value="10" class="gcs-checkbox"><label for="10"></label><br>
+                 <p class="new_font">EL、JSTL</p><input type="checkbox" id="11" name="ppt" value="11 " class="gcs-checkbox"><label for="11"></label><br>
+                 <p class="new_font">其他专题</p><input type="checkbox" id="12" name="ppt" value="12" class="gcs-checkbox"><label for="12"></label><br>
+                 <p class="new_font">SSH</p><input type="checkbox" id="13" name="ppt" value="13" class="gcs-checkbox"><label for="13"></label><br>
+                 <p class="new_font">Vue</p><input type="checkbox" id="14" name="ppt" value="14" class="gcs-checkbox"><label for="14"></label><br>
+             </form>
+
+             <p class="font2">3.开发案例：</p>
+             <form class="Forms">
+                 <p class="new_font">开发案例</p><input type="checkbox" id="15" name="ppt" value="15" class="gcs-checkbox"><label for="15"></label> <br>
+             </form>
+
+
+             <form class="Forms">
+
+                 <input type="button" onclick="selectOne()" value="确定" class="new_button">
+
+             </form>
+
+
+         </div>
+     </div>
+</body>
+</html>
