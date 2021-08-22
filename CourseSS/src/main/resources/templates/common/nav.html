@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="nav">
+    <div id="nav" style="height: 150%">
+        <ul class="layui-nav" style="background-color: #9B1714">
+            <li th:class="${active=='main'?'layui-this layui-nav-item':'layui-nav-item'}">
+                <a style="cursor: pointer" href="../main.html">首页</a>
+            </li>
+
+            <li th:class="${active=='course'?'layui-nav-item layui-this':'layui-nav-item'}">
+                <a th:href="@{/service/getCourse}">课程分享中心</a>
+            </li>
+
+            <li class="layui-nav-item">
+                <a th:href="@{/vip/videos.html}">vip中心<span class="layui-badge-dot"></span></a>
+            </li>
+
+            <li th:class="${active=='reply'?'layui-this layui-nav-item':'layui-nav-item'}">
+                <a th:href="@{/service/message}">社区<span th:class="${session.get('mAndRNumber')==0?'xuanzeqiYincang':'layui-badge'}">
+                    [[${session.get('mAndRNumber')}]]</span></a>
+            </li>
+
+            <!--    个人中心    -->
+            <li th:class="${active=='personal'?'layui-this layui-nav-item':'layui-nav-item'}">
+                <a style="cursor: pointer" href="/service/getCollect">
+                    <!--头像-->
+                    <img th:src="${session.get('userLogin').getUser_avatar()}" class="layui-nav-img">
+                    [[${session.get('userLogin').getUser_name()}]]</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="/service/getCollect">修改信息</a></dd>
+                    <dd><a th:href="@{/logout}">注销</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+</div>
+
+</html>

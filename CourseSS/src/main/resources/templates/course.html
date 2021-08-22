@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>课程共享</title>
+
+    <!--引入jquery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- 引入 layui.css -->
+    <link rel="stylesheet" href="//unpkg.com/layui@2.6.8/dist/css/layui.css"/>
+
+    <!-- 引入 layui.js -->
+    <script src="//unpkg.com/layui@2.6.8/dist/layui.js"></script>
+
+    <link type="text/css" rel="stylesheet" th:href="@{/css/foot.css}">
+
+    <style type="text/css">
+        .fontBeau{
+            font-size: 15px;
+            font-family: serif;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .removeButtonStyle{
+        /*//消除button的默认样式*/
+            margin: 0;
+            padding: 0;
+            border: 1px solid transparent;  /*自定义边框*/
+            outline: none;    /*消除默认点击蓝色边框效果*/
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+
+<!--导航-->
+<div th:replace="~{common/nav::#nav(active='course')}"></div>
+
+<!--课程的相关内容-->
+<div style="width: 70%;margin-left: 15%;margin-top: 5px">
+    <div class="layui-collapse" th:each="course:${session.get('allCourse')}">
+        <div class="layui-colla-item">
+            <h1 class="layui-colla-title" style="font-size: 20px" th:text="${course.getCourse_name()}"></h1>
+            <div class="layui-colla-content">
+
+                <p class="fontBeau">课程的学分为：<font th:text="${course.getCourse_credit()}"></font></p>
+                <p class="fontBeau">课程的学习目标：<font th:text="${course.getCourse_goal()}"></font></p>
+
+                <i class="layui-icon layui-icon-read" style="cursor: pointer;color: #0c7cd5"
+                   th:onclick="pdfSaw([[${course.getCourse_testSrc()}]])">考试范围和主要内容</i><br>
+
+                <i class="layui-icon layui-icon-link" style="cursor: pointer;color: #0c7cd5">
+                    <a th:href="${course.getCourse_bookUrl()}" target="_blank">
+                        提取码是：<font>[[${course.getCourse_bookPass()}]]</font></a>
+                </i>
+
+                <form method="get" action="/service/downloadPPT" class="layui-form">
+                    <input type="text" name="fileUrl" th:value="${course.getCourse_pptUrl()}" style="display: none">
+                    <!--提交-->
+                    <div class="layui-form-item" style="text-align:right;margin-right: 25px">
+                        <div class="layui-input-block">
+                            <button class="layui-btn layui-btn-sm" lay-submit lay-filter="formDemo1">
+                                下载PPT</button>
+                        </div>
+                    </div>
+                </form>
+
+                <form method="get" action="/service/addCollect" class="layui-form">
+                    <input type="text" name="course_id" th:value="${course.getCourse_id()}" style="display: none">
+                    <input type="text" name="course_name" th:value="${course.getCourse_name()}" style="display: none">
+                    <input type="text" name="course_credit" th:value="${course.getCourse_credit()}" style="display: none">
+                    <input type="text" name="course_goal" th:value="${course.getCourse_goal()}" style="display: none">
+
+                    <!--提交-->
+                    <div class="layui-form-item" style="text-align:right;margin-right: 25px">
+                        <div class="layui-input-block">
+                            <button class="removeButtonStyle" lay-submit lay-filter="formDemo1">
+                                <i class="layui-icon layui-icon-star"
+                                   style="cursor: pointer;font-size: 35px"></i></button>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    layui.use('element', function(){
+        var element = layui.element;
+
+        //一些事件触发
+        element.on('tab(demo)', function(data){
+            console.log(data);
+        });
+    });
+</script>
+
+<!--阅读pdf-->
+<script>
+    function pdfSaw(url) {
+
+        console.log(url)
+
+        layui.use('layer', function () {
+            var layer = layui.layer;
+            layer.open({
+                type: 2,
+                area: ['1000px', '750px'],
+                fixed: false, //不固定
+                maxmin: true,
+                content: url
+            });
+        });
+    };
+</script>
+
+<!--弹出层的引用-->
+<script th:inline="javascript">
+    layui.use('layer', function(){
+        var layer = layui.layer;
+
+        if ([[${downloadMsg}]]!==null){
+            layer.msg([[${downloadMsg}]])
+        }
+
+        if ([[${msgAdd}]]!==null){
+            layer.msg([[${msgAdd}]])
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fa5a9e34-b761-4f39-8914-cb37de19a453" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/.idea/artifacts/TrainTicketingSystem02_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/TrainTicketingSystem02.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/LoginInterface.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/RegisterInterface.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/css/box_style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/css/headerLogo.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/css/hover_htc.htc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/css/ico.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/css/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/css/loading.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/images/backgroud-img.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/images/bottom.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/images/eee.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/images/ico.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/images/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/images/loading.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/images/login-sprite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/images/login_button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/images/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/images/logo2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/images/menu_line.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/images/menu_xsj.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/images/nav_cur.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/images/railway/img01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/images/railway/img02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/images/railway/img03.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/images/railway/img04.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/images/railway/img05.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/images/railway/imgss.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/images/railway/imgsss.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/images/reg_bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/images/top_tel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/js/formValidatorRegex.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/js/formValidator_min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/js/jquery-1.11.0.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/js/public.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/js/vue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StudentSystem/TrainTicketingSystem02/web/testVue.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../badp/src/main/java/com/fxk/badp/config/MyLocaleResolve.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentSystem/StudentSystem/src/main/webapp/LoginInterface.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../StudentSystem/StudentSystem/src/main/webapp/LoginInterface.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentSystem/StudentSystem/target/StudentSystem/LoginInterface.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../StudentSystem/StudentSystem/target/StudentSystem/LoginInterface.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TrainTicketsSystem1.0/out/artifacts/TrainTicketsSystem1_0_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../TrainTicketsSystem1.0/out/artifacts/TrainTicketsSystem1_0_war_exploded/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TrainTicketsSystem1.0/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../TrainTicketsSystem1.0/web/index.jsp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1wdCDHe7ytzz9Tcx1GAofloPfww" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/static/img" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/static/file" />
+      <recent name="$PROJECT_DIR$/src/main/resources/static/img/carousel" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.study.util" />
+      <recent name="com.study.config" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/static/img" />
+      <recent name="$PROJECT_DIR$/src/main/resources/static/js" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.CourseSharingSiteApplication">
+    <configuration name="CourseSharingSiteApplicationTests.testCollect" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CourseSS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.study.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.study" />
+      <option name="MAIN_CLASS_NAME" value="com.study.CourseSharingSiteApplicationTests" />
+      <option name="METHOD_NAME" value="testCollect" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CourseSharingSiteApplicationTests.testCourse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CourseSS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.study.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.study" />
+      <option name="MAIN_CLASS_NAME" value="com.study.CourseSharingSiteApplicationTests" />
+      <option name="METHOD_NAME" value="testCourse" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CourseSharingSiteApplicationTests.testDownload" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CourseSS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.study.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.study" />
+      <option name="MAIN_CLASS_NAME" value="com.study.CourseSharingSiteApplicationTests" />
+      <option name="METHOD_NAME" value="testDownload" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CourseSharingSiteApplicationTests.testReply" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CourseSS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.study.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.study" />
+      <option name="MAIN_CLASS_NAME" value="com.study.CourseSharingSiteApplicationTests" />
+      <option name="METHOD_NAME" value="testReply" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CourseSharingSiteApplicationTests.testUtil" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CourseSS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.study.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.study" />
+      <option name="MAIN_CLASS_NAME" value="com.study.CourseSharingSiteApplicationTests" />
+      <option name="METHOD_NAME" value="testUtil" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CourseSharingSiteApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="CourseSS" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.study.CourseSharingSiteApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.CourseSharingSiteApplicationTests.testReply" />
+      <item itemvalue="JUnit.CourseSharingSiteApplicationTests.testCourse" />
+      <item itemvalue="JUnit.CourseSharingSiteApplicationTests.testUtil" />
+      <item itemvalue="JUnit.CourseSharingSiteApplicationTests.testDownload" />
+      <item itemvalue="JUnit.CourseSharingSiteApplicationTests.testCollect" />
+      <item itemvalue="Spring Boot.CourseSharingSiteApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.CourseSharingSiteApplicationTests.testDownload" />
+        <item itemvalue="JUnit.CourseSharingSiteApplicationTests.testCollect" />
+        <item itemvalue="JUnit.CourseSharingSiteApplicationTests.testUtil" />
+        <item itemvalue="JUnit.CourseSharingSiteApplicationTests.testCourse" />
+        <item itemvalue="JUnit.CourseSharingSiteApplicationTests.testReply" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fa5a9e34-b761-4f39-8914-cb37de19a453" name="Default Changelist" comment="" />
+      <created>1628778957289</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1628778957289</updated>
+      <workItem from="1628778960796" duration="129000" />
+      <workItem from="1628812266347" duration="1375000" />
+      <workItem from="1628905474910" duration="2361000" />
+      <workItem from="1628908124857" duration="5969000" />
+      <workItem from="1628939212931" duration="1363000" />
+      <workItem from="1628990179057" duration="12558000" />
+      <workItem from="1629079100238" duration="2974000" />
+      <workItem from="1629097974252" duration="2155000" />
+      <workItem from="1629100278166" duration="661000" />
+      <workItem from="1629100965537" duration="6277000" />
+      <workItem from="1629163965000" duration="11597000" />
+      <workItem from="1629253254323" duration="10157000" />
+      <workItem from="1629291044578" duration="777000" />
+      <workItem from="1629292183623" duration="4222000" />
+      <workItem from="1629337164711" duration="21920000" />
+      <workItem from="1629382544060" duration="214000" />
+      <workItem from="1629422849913" duration="1612000" />
+      <workItem from="1629424743207" duration="5307000" />
+      <workItem from="1629445775311" duration="11714000" />
+      <workItem from="1629505745188" duration="1289000" />
+      <workItem from="1629507222147" duration="12495000" />
+      <workItem from="1629538204874" duration="182000" />
+      <workItem from="1629598894997" duration="824000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="448" y="121" key="#Project_Structure" timestamp="1628812471060">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="448" y="121" key="#Project_Structure/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1628812471060" />
+    <state x="424" y="202" width="1134" height="676" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1628993382281">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="424" y="202" width="1134" height="676" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1628993382281" />
+    <state x="773" y="253" key="#com.intellij.ide.util.MemberChooser" timestamp="1629537608933">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="773" y="253" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1629537608933" />
+    <state x="698" y="294" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1629517274454">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="698" y="294" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1629517274454" />
+    <state x="100" y="100" width="1720" height="880" key="DiffContextDialog" timestamp="1629338240308">
+      <screen x="0" y="23" width="1920" height="989" />
+    </state>
+    <state x="100" y="100" width="1720" height="880" key="DiffContextDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1628915828820" />
+    <state x="100" y="100" width="1720" height="880" key="DiffContextDialog/0.23.1920.989/1920.23.1920.1057@0.23.1920.989" timestamp="1629338240308" />
+    <state width="1299" height="67" key="GridCell.Tab.0.bottom" timestamp="1629538481176">
+      <screen x="0" y="23" width="1920" height="989" />
+    </state>
+    <state width="1878" height="123" key="GridCell.Tab.0.bottom/0.0.1920.1012/1920.23.1920.1057@0.0.1920.1012" timestamp="1629506885160" />
+    <state width="1878" height="415" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1629537933217" />
+    <state width="1878" height="454" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.23.1920.1057@0.0.1920.1080" timestamp="1629296841578" />
+    <state width="1299" height="67" key="GridCell.Tab.0.bottom/0.23.1920.989/1920.23.1920.1057@0.23.1920.989" timestamp="1629538481176" />
+    <state width="1299" height="67" key="GridCell.Tab.0.center" timestamp="1629538481175">
+      <screen x="0" y="23" width="1920" height="989" />
+    </state>
+    <state width="1878" height="123" key="GridCell.Tab.0.center/0.0.1920.1012/1920.23.1920.1057@0.0.1920.1012" timestamp="1629506885156" />
+    <state width="1878" height="415" key="GridCell.Tab.0.center/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1629537933212" />
+    <state width="1878" height="454" key="GridCell.Tab.0.center/0.0.1920.1080/1920.23.1920.1057@0.0.1920.1080" timestamp="1629296841577" />
+    <state width="1299" height="67" key="GridCell.Tab.0.center/0.23.1920.989/1920.23.1920.1057@0.23.1920.989" timestamp="1629538481175" />
+    <state width="1299" height="67" key="GridCell.Tab.0.left" timestamp="1629538481174">
+      <screen x="0" y="23" width="1920" height="989" />
+    </state>
+    <state width="1878" height="123" key="GridCell.Tab.0.left/0.0.1920.1012/1920.23.1920.1057@0.0.1920.1012" timestamp="1629506885154" />
+    <state width="1878" height="415" key="GridCell.Tab.0.left/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1629537933211" />
+    <state width="1878" height="454" key="GridCell.Tab.0.left/0.0.1920.1080/1920.23.1920.1057@0.0.1920.1080" timestamp="1629296841576" />
+    <state width="1299" height="67" key="GridCell.Tab.0.left/0.23.1920.989/1920.23.1920.1057@0.23.1920.989" timestamp="1629538481174" />
+    <state width="1299" height="67" key="GridCell.Tab.0.right" timestamp="1629538481176">
+      <screen x="0" y="23" width="1920" height="989" />
+    </state>
+    <state width="1878" height="123" key="GridCell.Tab.0.right/0.0.1920.1012/1920.23.1920.1057@0.0.1920.1012" timestamp="1629506885158" />
+    <state width="1878" height="415" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1629537933215" />
+    <state width="1878" height="454" key="GridCell.Tab.0.right/0.0.1920.1080/1920.23.1920.1057@0.0.1920.1080" timestamp="1629296841577" />
+    <state width="1299" height="67" key="GridCell.Tab.0.right/0.23.1920.989/1920.23.1920.1057@0.23.1920.989" timestamp="1629538481176" />
+    <state width="1299" height="415" key="GridCell.Tab.1.bottom" timestamp="1629538201633">
+      <screen x="0" y="23" width="1920" height="989" />
+    </state>
+    <state width="1878" height="123" key="GridCell.Tab.1.bottom/0.0.1920.1012/1920.23.1920.1057@0.0.1920.1012" timestamp="1629506884950" />
+    <state width="1878" height="415" key="GridCell.Tab.1.bottom/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1629537933054" />
+    <state width="1878" height="454" key="GridCell.Tab.1.bottom/0.0.1920.1080/1920.23.1920.1057@0.0.1920.1080" timestamp="1629296841580" />
+    <state width="1299" height="415" key="GridCell.Tab.1.bottom/0.23.1920.989/1920.23.1920.1057@0.23.1920.989" timestamp="1629538201633" />
+    <state width="1299" height="415" key="GridCell.Tab.1.center" timestamp="1629538201633">
+      <screen x="0" y="23" width="1920" height="989" />
+    </state>
+    <state width="1878" height="123" key="GridCell.Tab.1.center/0.0.1920.1012/1920.23.1920.1057@0.0.1920.1012" timestamp="1629506884948" />
+    <state width="1878" height="415" key="GridCell.Tab.1.center/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1629537933052" />
+    <state width="1878" height="454" key="GridCell.Tab.1.center/0.0.1920.1080/1920.23.1920.1057@0.0.1920.1080" timestamp="1629296841579" />
+    <state width="1299" height="415" key="GridCell.Tab.1.center/0.23.1920.989/1920.23.1920.1057@0.23.1920.989" timestamp="1629538201633" />
+    <state width="1299" height="415" key="GridCell.Tab.1.left" timestamp="1629538201633">
+      <screen x="0" y="23" width="1920" height="989" />
+    </state>
+    <state width="1878" height="123" key="GridCell.Tab.1.left/0.0.1920.1012/1920.23.1920.1057@0.0.1920.1012" timestamp="1629506884947" />
+    <state width="1878" height="415" key="GridCell.Tab.1.left/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1629537933051" />
+    <state width="1878" height="454" key="GridCell.Tab.1.left/0.0.1920.1080/1920.23.1920.1057@0.0.1920.1080" timestamp="1629296841578" />
+    <state width="1299" height="415" key="GridCell.Tab.1.left/0.23.1920.989/1920.23.1920.1057@0.23.1920.989" timestamp="1629538201633" />
+    <state width="1299" height="415" key="GridCell.Tab.1.right" timestamp="1629538201633">
+      <screen x="0" y="23" width="1920" height="989" />
+    </state>
+    <state width="1878" height="123" key="GridCell.Tab.1.right/0.0.1920.1012/1920.23.1920.1057@0.0.1920.1012" timestamp="1629506884949" />
+    <state width="1878" height="415" key="GridCell.Tab.1.right/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1629537933053" />
+    <state width="1878" height="454" key="GridCell.Tab.1.right/0.0.1920.1080/1920.23.1920.1057@0.0.1920.1080" timestamp="1629296841580" />
+    <state width="1299" height="415" key="GridCell.Tab.1.right/0.23.1920.989/1920.23.1920.1057@0.23.1920.989" timestamp="1629538201633" />
+    <state width="1299" height="415" key="GridCell.Tab.2.bottom" timestamp="1629538201634">
+      <screen x="0" y="23" width="1920" height="989" />
+    </state>
+    <state width="1878" height="123" key="GridCell.Tab.2.bottom/0.0.1920.1012/1920.23.1920.1057@0.0.1920.1012" timestamp="1629506884953" />
+    <state width="1878" height="415" key="GridCell.Tab.2.bottom/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1629537933058" />
+    <state width="1878" height="454" key="GridCell.Tab.2.bottom/0.0.1920.1080/1920.23.1920.1057@0.0.1920.1080" timestamp="1629296841583" />
+    <state width="1299" height="415" key="GridCell.Tab.2.bottom/0.23.1920.989/1920.23.1920.1057@0.23.1920.989" timestamp="1629538201634" />
+    <state width="1299" height="415" key="GridCell.Tab.2.center" timestamp="1629538201634">
+      <screen x="0" y="23" width="1920" height="989" />
+    </state>
+    <state width="1878" height="123" key="GridCell.Tab.2.center/0.0.1920.1012/1920.23.1920.1057@0.0.1920.1012" timestamp="1629506884952" />
+    <state width="1878" height="415" key="GridCell.Tab.2.center/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1629537933055" />
+    <state width="1878" height="454" key="GridCell.Tab.2.center/0.0.1920.1080/1920.23.1920.1057@0.0.1920.1080" timestamp="1629296841581" />
+    <state width="1299" height="415" key="GridCell.Tab.2.center/0.23.1920.989/1920.23.1920.1057@0.23.1920.989" timestamp="1629538201634" />
+    <state width="1299" height="415" key="GridCell.Tab.2.left" timestamp="1629538201634">
+      <screen x="0" y="23" width="1920" height="989" />
+    </state>
+    <state width="1878" height="123" key="GridCell.Tab.2.left/0.0.1920.1012/1920.23.1920.1057@0.0.1920.1012" timestamp="1629506884951" />
+    <state width="1878" height="415" key="GridCell.Tab.2.left/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1629537933055" />
+    <state width="1878" height="454" key="GridCell.Tab.2.left/0.0.1920.1080/1920.23.1920.1057@0.0.1920.1080" timestamp="1629296841581" />
+    <state width="1299" height="415" key="GridCell.Tab.2.left/0.23.1920.989/1920.23.1920.1057@0.23.1920.989" timestamp="1629538201634" />
+    <state width="1299" height="415" key="GridCell.Tab.2.right" timestamp="1629538201634">
+      <screen x="0" y="23" width="1920" height="989" />
+    </state>
+    <state width="1878" height="123" key="GridCell.Tab.2.right/0.0.1920.1012/1920.23.1920.1057@0.0.1920.1012" timestamp="1629506884952" />
+    <state width="1878" height="415" key="GridCell.Tab.2.right/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1629537933057" />
+    <state width="1878" height="454" key="GridCell.Tab.2.right/0.0.1920.1080/1920.23.1920.1057@0.0.1920.1080" timestamp="1629296841582" />
+    <state width="1299" height="415" key="GridCell.Tab.2.right/0.23.1920.989/1920.23.1920.1057@0.23.1920.989" timestamp="1629538201634" />
+    <state x="469" y="179" key="SettingsEditor" timestamp="1629601608203">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="469" y="179" key="SettingsEditor/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1629601608203" />
+    <state x="667" y="295" width="586" height="490" key="find.popup" timestamp="1629516670225">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="667" y="295" width="586" height="490" key="find.popup/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1629516670225" />
+    <state x="383" y="203" key="new project wizard" timestamp="1629461861835">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="383" y="203" key="new project wizard/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1629461861835" />
+    <state x="625" y="241" width="670" height="676" key="search.everywhere.popup" timestamp="1629464260700">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="625" y="241" width="670" height="676" key="search.everywhere.popup/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1629464260700" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/CourseSS$CourseSharingSiteApplication.ic" NAME="CourseSharingSiteApplication Coverage Results" MODIFIED="1629098050386" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>

@@ -1,0 +1,40 @@
+# springboot的配置文件
+# 更改项目的端口号
+server:
+  port: 8188
+  tomcat:
+    max-http-header-size: 8192
+# mybatis扫描的实体类
+mybatis:
+  type-aliases-package: com.study.pojo
+# 数据库的连接
+spring:
+  datasource:
+    username: fxk
+    password: Fxk199959
+    # 更换为阿里云数据库，节省实例的内存
+    url: jdbc:mysql://rm-2zes1vjbzf4mv635rdo.mysql.rds.aliyuncs.com:3306/CourseSS?userUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #Spring Boot 默认是不注入这些属性值的，需要自己绑定
+    #druid 数据源专有配置
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      test-on-borrow: true
+      test-while-idle: true
+
+    # 文件上传大小的控制
+  servlet:
+    multipart:
+      max-file-size: 16MB
+      max-request-size: 128MB

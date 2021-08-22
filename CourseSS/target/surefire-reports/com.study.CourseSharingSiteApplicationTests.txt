@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: com.study.CourseSharingSiteApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 10, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 5.718 s <<< FAILURE! - in com.study.CourseSharingSiteApplicationTests
+testOss  Time elapsed: 2.011 s  <<< ERROR!
+java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at com.study.CourseSharingSiteApplicationTests.testOss(CourseSharingSiteApplicationTests.java:144)
+
+testUtil  Time elapsed: 0.006 s  <<< ERROR!
+java.io.FileNotFoundException: /Users/yuanbao/Desktop/temp/result.zip (No such file or directory)
+	at com.study.CourseSharingSiteApplicationTests.testUtil(CourseSharingSiteApplicationTests.java:161)
+
+testAllMessage  Time elapsed: 0.081 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.study.CourseSharingSiteApplicationTests.testAllMessage(CourseSharingSiteApplicationTests.java:58)
+

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="community">
+    <div id="messageReply" style="width: 98%">
+
+        <div class="layui-col-space30" id="demo-box">
+            <!--菜单栏-->
+            <div class="layui-col-xs9 layui-col-md2">
+                <div class="layui-panel" style="padding-left: 5%;">
+                    <ul class="layui-menu" style="max-width: 100%;"
+                        id="docDemoMenu1">
+                        <li lay-options="{id: 100}">
+                            <div class="layui-menu-body-title">社区</div>
+                        </li>
+                        <li lay-options="{id: 101}">
+                            <div class="layui-menu-body-title">
+                                <a href="#">我的未读消息<span th:class="${session.get('mAndRNumber')==0?'':'layui-badge-dot'}"></span></a>
+                            </div>
+                        </li>
+
+                        <!--分割线-->
+                        <li class="layui-menu-item-divider"></li>
+
+                        <li class="layui-menu-item-group layui-menu-item-down" lay-options="{type: 'group'}">
+                            <div class="layui-menu-body-title">
+                                留言<i class="layui-icon layui-icon-up"></i>
+                            </div>
+                            <ul>
+                                <li lay-options="{id: 1021}">我的留言</li>
+                                <li lay-options="{id: 1022}">
+                                    <div class="layui-menu-body-title">发表留言</div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--     社区--展示全部留言和回复       -->
+            <div class="layui-col-md10" id="personP" style="overflow:auto;padding-bottom: 15px">
+                <p style="font-family: serif;font-size: 50px;font-weight: bolder;margin-left: 20%">社区天地</p>
+                <div class="marginPanel" th:if="${session.get('allMessageAndReply')}">
+
+                    <!--每条留言和回复-->
+                    <div th:each="messageAndReply:${session.get('allMessageAndReply')}">
+
+                        <div class="marginPanel" th:each="messageReply:${messageAndReply.getMessageAndReplies()}"
+                             style="margin: 25px;">
+                            <!--留言者的相关信息-->
+                            <img th:src="${messageAndReply.getUser_avatar()}" class="layui-nav-img">
+                            <font th:text="${messageAndReply.getUser_name()}"
+                                  style="font-size: 20px;font-weight: bold;font-family: serif;margin: 3px;"></font><br>
+                            <font style="font-size: 17px;font-weight: lighter;font-family: serif;margin-left: 45px"
+                            th:text="${messageReply.getTimestamp()}"></font>
+                            <p style="font-size: 18px;font-weight: normal;font-family: serif;margin: 2px"
+                               th:text="${messageReply.getMessage()}"></p>
+                            <i class="layui-icon layui-icon-reply-fill" style="color: dodgerblue;font-size: 16px;"><a
+                                    style="cursor: pointer;color: darkgray;font-weight: bolder"  th:onclick="'addReply('+${messageReply.getMessage_id()}+')'">回复</a>
+                            </i>
+
+                            <!--       进行回复     -->
+                            <form class="layui-form xuanzeqiYincang" action="/service/addReply" method="get" th:id="${messageReply.getMessage_id()}">
+                                <!--文本框-->
+                                <div class="layui-form-item layui-form-text" style="margin: 8px;width: 100%">
+                                    <label style="font-size: 25px;font-family: serif;margin: 15px">评论</label>
+                                    <div style="margin: 15px">
+                                <textarea name="reply" placeholder="请输入内容" class="layui-textarea"  style="font-size: 20px;font-weight: bold;font-family: serif"
+                                          required  lay-verify="required"></textarea>
+                                    </div>
+                                </div>
+                                  <!--message_id-->
+                                <input name="message_id" type="text" th:value="${messageReply.getMessage_id()}" style="display: none">
+                                <!--提交-->
+                                <div class="layui-form-item" style="text-align:right">
+                                    <div class="layui-input-block">
+                                        <button class="layui-btn" lay-submit lay-filter="formDemo">发表</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <!--回复者的相关信息-->
+                            <div th:if="${messageReply.getReplies().size()==0}"
+                                 style="margin-bottom: 15px;margin-top: 15px;font-size: 15px;font-family: serif">
+                                暂无回复
+                            </div>
+                            <div th:if="${messageReply.getReplies().size()!=0}" class="marginPanel"
+                                 style="margin-left: 10%;margin-bottom: 15px;margin-top: 15px;background-color: rgb(230, 230, 230);width: 50%"
+                                 th:each="replies:${messageReply.getReplies()}">
+                                <div class="marginPanel">
+                                    <img th:src="${replies.getUser_avatar()}" class="layui-nav-img">
+                                    <font th:text="${replies.getUser_name()}"
+                                          style="font-size: 18px;font-weight: bold;font-family: serif;margin: 3px"></font>
+                                    <p style="font-size: 15px;font-weight: normal;font-family: serif;margin: 2px"
+                                    th:text="${replies.getReply()}"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!--我的未读回复-->
+            <div class="layui-col-md10 xuanzeqiYincang" id="courseP">
+                <div class="marginPanel">
+                    <div th:if="${session.get('mAndRNumber')==0}">
+                        暂无未读消息！！！
+                    </div>
+
+                    <div class="marginPanel" th:each="messageReply:${session.get('mAndR').getMessageAndReplies()}"
+                         style="margin: 25px;">
+                        <!---->
+                        <img th:src="${session.get('userLogin').getUser_avatar()}" class="layui-nav-img">
+                        <font th:text="${session.get('userLogin').getUser_name()}"
+                              style="font-size: 20px;font-weight: bold;font-family: serif;margin: 3px;"></font><br>
+                        <font style="font-size: 17px;font-weight: lighter;font-family: serif;margin-left: 45px"
+                              th:text="${messageReply.getTimestamp()}"></font>
+                        <p style="font-size: 18px;font-weight: normal;font-family: serif;margin: 2px"
+                           th:text="${messageReply.getMessage()}"></p>
+
+
+                        <!--       进行回复     -->
+                        <form class="layui-form" action="/service/removeUnreadReply" method="get">
+                            <!--message_id-->
+                            <input name="message_id" type="text" th:value="${messageReply.getMessage_id()}" style="display: none">
+                            <!--提交-->
+                            <div class="layui-form-item" style="text-align:right;margin-right: 25px">
+                                <div class="layui-input-block">
+                                    <button class="layui-btn layui-btn-sm" lay-submit lay-filter="formDemo">
+                                        标为已读</button>
+                                </div>
+                            </div>
+                        </form>
+
+
+                        <!--未读的回复-->
+                        <div th:if="${messageReply.getReplies().size()!=0}" class="marginPanel"
+                             style="margin-left: 10%;margin-bottom: 15px;margin-top: 15px;background-color: #FFFAF0;width: 50%"
+                             th:each="replies:${messageReply.getReplies()}">
+                            <div class="marginPanel">
+                                <img th:src="${replies.getUser_avatar()}" class="layui-nav-img">
+                                <font th:text="${replies.getUser_name()}"
+                                      style="font-size: 18px;font-weight: bold;font-family: serif;margin: 3px"></font>
+                                <p style="font-size: 15px;font-weight: normal;font-family: serif;margin: 2px"
+                                   th:text="${replies.getReply()}"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--     关于我的留言和回复      -->
+            <div class="layui-col-md10 xuanzeqiYincang" id="messageP1">
+                <div class="marginPanel">
+                    <div class="marginPanel" th:each="messageReply:${session.get('messageAndReply').getMessageAndReplies()}"
+                         style="margin: 25px;background-color: #F5F5F5">
+                        <!--留言者的相关信息-->
+                        <img th:src="${session.get('userLogin').getUser_avatar()}" class="layui-nav-img">
+                        <font th:text="${session.get('userLogin').getUser_name()}"
+                              style="font-size: 20px;font-weight: bold;font-family: serif;margin: 3px;"></font><br>
+                        <font style="font-size: 17px;font-weight: lighter;font-family: serif;margin-left: 45px"
+                              th:text="${messageReply.getTimestamp()}"></font>
+                        <p style="font-size: 18px;font-weight: normal;font-family: serif;margin: 2px"
+                           th:text="${messageReply.getMessage()}"></p>
+
+
+                        <!--回复者的相关信息-->
+                        <div th:if="${messageReply.getReplies().size()==0}"
+                             style="margin-bottom: 15px;margin-top: 15px;background-color: #FFFAF0;font-size: 15px;font-family: serif">
+                            暂无回复
+                        </div>
+                        <div th:if="${messageReply.getReplies().size()!=0}" class="marginPanel"
+                             style="margin-left: 10%;margin-bottom: 15px;margin-top: 15px;background-color: #FFFAF0;width: 50%"
+                             th:each="replies:${messageReply.getReplies()}">
+                            <div class="marginPanel">
+                                <img th:src="${replies.getUser_avatar()}" class="layui-nav-img">
+                                <font th:text="${replies.getUser_name()}"
+                                      style="font-size: 18px;font-weight: bold;font-family: serif;margin: 3px"></font>
+                                <p style="font-size: 15px;font-weight: normal;font-family: serif;margin: 2px"
+                                   th:text="${replies.getReply()}"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--       发表留言     -->
+            <div class="layui-col-md10 xuanzeqiYincang" id="messageP2">
+                <div class="marginPanel">
+                    <form class="layui-form" action="/service/addMessage" method="get">
+                        <!--文本框-->
+                        <div class="layui-form-item layui-form-text" style="margin: 8px;width: 100%">
+                            <label style="font-size: 25px;font-family: serif;margin: 15px">留言板</label>
+
+                            <div style="margin: 15px">
+                                <textarea name="message" placeholder="请输入内容" class="layui-textarea"  style="font-size: 20px;font-weight: bold;font-family: serif"
+                                          required  lay-verify="required"></textarea>
+                            </div>
+                        </div>
+
+                        <!--提交-->
+                        <div class="layui-form-item" style="text-align:right">
+                            <div class="layui-input-block">
+                                <button class="layui-btn" lay-submit lay-filter="formDemo">发表</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</html>

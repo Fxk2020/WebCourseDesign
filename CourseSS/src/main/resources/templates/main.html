@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>课程共享网站</title>
+
+    <!--引入jquery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- 引入 layui.css -->
+    <link rel="stylesheet" href="//unpkg.com/layui@2.6.8/dist/css/layui.css"/>
+
+    <!-- 引入 layui.js -->
+    <script src="//unpkg.com/layui@2.6.8/dist/layui.js"></script>
+
+    <link type="text/css" rel="stylesheet" th:href="@{/css/foot.css}">
+
+    <!--  选择器 -- 其部分模块隐藏  -->
+    <style type="text/css">
+        .xuanzeqiYincang {
+            display: none;
+        }
+        .marginPanel{
+            margin-top: 1%;
+        }
+        p font{
+            font-family: serif;
+        }
+    </style>
+
+</head>
+<body>
+
+<!--导航-->
+<div th:replace="~{common/nav::#nav(active='main')}"></div>
+
+<!--首页-->
+<div>
+    <!--轮播图-->
+    <div class="layui-carousel" id="imgCourse" style="margin-left: 10%;margin-right: 10%;max-height: 808px">
+        <!--     style="border:2px solid;border-radius:25px;"-->
+        <div carousel-item>
+            <img th:src="@{/img/carousel/1.jpg}">
+            <img th:src="@{/img/carousel/2.jpg}">
+            <img th:src="@{/img/carousel/3.jpg}">
+            <img th:src="@{/img/carousel/4.jpg}">
+            <img th:src="@{/img/carousel/5.jpg}">
+        </div>
+    </div>
+</div>
+
+<!--页脚-->
+<div th:replace="~{common/footer::#foot}"></div>
+
+<!--大图轮播的引用-->
+<script>
+    layui.use('carousel', function(){
+        var carousel = layui.carousel;
+        //建造实例
+        carousel.render({
+            elem: '#imgCourse'
+            ,width: '80%' //设置容器宽度
+            ,height:'800px'
+            ,arrow: 'always' //始终显示箭头
+            ,interval:10000
+            //,anim: 'updown' //切换动画方式
+        });
+    });
+</script>
+
+<!--导航栏的引用-->
+<script>
+    layui.use('element', function(){
+        var element = layui.element;
+
+        //一些事件触发
+        element.on('tab(demo)', function(data){
+            console.log(data);
+        });
+    });
+</script>
+
+<!--弹出层的引用-->
+<script th:inline="javascript">
+    layui.use('layer', function(){
+        var layer = layui.layer;
+
+        if ([[${session.get('msgFail')}]]!==null){
+            layer.msg([[${session.get('msgFail')}]]);
+        }
+
+        if ([[${msg}]]!==null){
+            layer.msg([[${msg}]])
+        }
+    });
+</script>
+
+
+
+</body>
+</html>

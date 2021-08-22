@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+
+    <!--引入jquery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- 引入 layui.css -->
+    <link rel="stylesheet" href="//unpkg.com/layui@2.6.8/dist/css/layui.css"/>
+
+    <!-- 引入 layui.js -->
+    <script src="//unpkg.com/layui@2.6.8/dist/layui.js"></script>
+
+    <link type="text/css" rel="stylesheet" th:href="@{/css/foot.css}">
+
+    <!--  选择器 -- 其部分模块隐藏  -->
+    <style type="text/css">
+        .xuanzeqiYincang {
+            display: none;
+        }
+
+        .marginPanel {
+            margin-top: 1%;
+        }
+
+        p font {
+            font-family: serif;
+        }
+    </style>
+</head>
+<body>
+
+<!--导航-->
+<div th:replace="~{common/nav::#nav(active='personal')}"></div>
+
+<!--个人中心-->
+<div th:replace="~{messageP/personalCenter::#center}"></div>
+
+<!--页脚-->
+<div th:replace="~{common/footer::#foot}"></div>
+
+
+<!--导航栏的引用-->
+<script>
+    layui.use('element', function(){
+        var element = layui.element;
+
+        //一些事件触发
+        element.on('tab(demo)', function(data){
+            console.log(data);
+        });
+    });
+</script>
+
+<!--弹出层的引用-->
+<script th:inline="javascript">
+    layui.use('layer', function(){
+        var layer = layui.layer;
+
+        if ([[${msgPersonal}]]!==null){
+            layer.msg([[${msgPersonal}]]);
+        }
+    });
+</script>
+
+<!--菜单栏的引用-->
+<script>
+    layui.use('dropdown', function(){
+        var dropdown = layui.dropdown;
+
+        //菜单点击事件，其中 docDemoMenu1 对应的是菜单结构上的 id 指
+        dropdown.on('click(docDemoMenu1)', function(options){
+            var othis = $(this); //当前菜单列表的 DOM 对象
+            //options 菜单列表的 lay-options 中的参数
+            //获取options中的属性直接获取即可
+            /**
+             * 100--我的主页
+             * 101--我学习的课程
+             * 其他--修改个人信息
+             */
+            var personP = document.getElementById("personP");
+            var courseP = document.getElementById("courseP");
+            var messageP1 = document.getElementById("messageP1");
+            var messageP2 = document.getElementById("messageP2");
+
+            if (options.id === 100){
+                personP.classList.remove("xuanzeqiYincang");
+                courseP.classList.add("xuanzeqiYincang");
+                messageP1.classList.add("xuanzeqiYincang");
+                messageP2.classList.add("xuanzeqiYincang");
+            }else if (options.id === 101){
+                console.log("101")
+                personP.classList.add("xuanzeqiYincang");
+                courseP.classList.remove("xuanzeqiYincang");
+                messageP1.classList.add("xuanzeqiYincang");
+                messageP2.classList.add("xuanzeqiYincang");
+            }else {
+                console.log("103")
+                if (options.id === 1031){
+                    personP.classList.add("xuanzeqiYincang");
+                    courseP.classList.add("xuanzeqiYincang");
+                    messageP1.classList.remove("xuanzeqiYincang");
+                    messageP2.classList.add("xuanzeqiYincang");
+                }else {
+                    personP.classList.add("xuanzeqiYincang");
+                    courseP.classList.add("xuanzeqiYincang");
+                    messageP1.classList.add("xuanzeqiYincang");
+                    messageP2.classList.remove("xuanzeqiYincang");
+                }
+            }
+
+        });
+    });
+</script>
+
+<!--头像上传的引用-->
+<script th:inline="javascript">
+    layui.use(['upload', 'element', 'layer'], function(){
+        var $ = layui.jquery
+            ,upload = layui.upload
+            ,element = layui.element
+            ,layer = layui.layer;
+
+        //常规使用 - 普通图片上传
+        var uploadInst = upload.render({
+            elem: '#updateImg'
+            ,url: '/service/update' //此处用的是第三方的 http 请求演示，实际使用时改成您自己的上传接口即可。
+            ,size: 1024*5 //大小限制为5M
+            ,acceptMime: 'image/*'//规定打开文件选择框时，筛选出的文件类型，值为用逗号隔开的 MIME 类型列表。
+            ,before: function(obj){
+                //预读本地文件示例，不支持ie8
+                obj.preview(function(index, file, result){
+                    $('#avatar').attr('src', result); //图片链接（base64）
+                });
+
+                element.progress('demo', '0%'); //进度条复位
+                layer.msg('上传中', {icon: 16, time: 0});
+            }
+            ,done: function(res){
+                //如果上传失败
+                if(res.code > 0){
+                    return layer.msg('上传失败');
+                }
+                //上传成功的一些操作
+                $('#demoText').html(''); //置空上传失败的状态
+                console.log(res.code)
+                console.log(res.msg)
+
+                //刷新页面
+                location.reload();
+            }
+            ,error: function(){
+                //演示失败状态，并实现重传
+                var demoText = $('#demoText');
+                demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+                demoText.find('.demo-reload').on('click', function(){
+                    uploadInst.upload();
+                });
+            }
+            //进度条
+            ,progress: function(n, elem, e){
+                element.progress('demo', n + '%'); //可配合 layui 进度条元素使用
+                if(n == 100){
+                    layer.msg('上传完毕', {icon: 1});
+                }
+            }
+        });});
+</script>
+
+<!--表单的引用-->
+<script>
+    //Demo
+    layui.use('form', function(){
+        var form = layui.form;
+
+        //监听提交
+        form.on('submit(formDemo)', function(data){
+
+            layer.msg(data.get('userName'))
+
+            // layer.msg(JSON.stringify(data.field));
+            return true;
+        });
+    });
+</script>
+
+</body>
+</html>

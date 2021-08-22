@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="personal">
+    <div id="center" style="height: 808px;width: 98%">
+
+        <div class="layui-col-space30" id="demo-box">
+            <div class="layui-col-xs9 layui-col-md2">
+                <div class="layui-panel" style="padding-left: 5%;">
+                    <ul class="layui-menu" style="max-width: 100%;"
+                        id="docDemoMenu1">
+                        <li lay-options="{id: 100}">
+                            <div class="layui-menu-body-title">我的主页</div>
+                        </li>
+                        <li lay-options="{id: 101}">
+                            <div class="layui-menu-body-title">
+                                <a style="cursor: pointer">我学习的课程<span class="layui-badge-dot"></span></a>
+                            </div>
+                        </li>
+
+                        <!--分割线-->
+                        <li class="layui-menu-item-divider"></li>
+
+                        <li class="layui-menu-item-group layui-menu-item-down" lay-options="{type: 'group'}">
+                            <div class="layui-menu-body-title">
+                                修改个人信息<i class="layui-icon layui-icon-up"></i>
+                            </div>
+                            <ul>
+                                <li lay-options="{id: 1031}">修改个人信息</li>
+                                <li lay-options="{id: 1032}">
+                                    <div class="layui-menu-body-title">上传头像</div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+<!--     个人中心展示头像和个性签名       -->
+            <div class="layui-col-md10" id="personP">
+                <div class="marginPanel">
+                    <div class="layui-row layui-col-space13">
+                        <div class="layui-col-md5" style="text-align: center">
+                            <div class="layui-panel">
+                                <img style="width: 50%;height: 50%" th:src="${session.get('userLogin').getUser_avatar()}">
+                                <p style="font-size: 25px;font-weight: bolder;font-family: serif;margin: 5px"
+                                th:text="${session.get('userLogin').getUser_name()}"></p>
+                                <p style="font-size: 15px;font-weight: lighter;font-family: serif;margin: 3px"
+                                th:text="${session.get('userLogin').getUser_signature()}"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-row layui-col-space13">
+                        <div class="layui-col-md5">
+                            <div class="layui-panel">
+                                <p style="font-size: 20px;font-weight: bolder;font-family: serif;margin: 3px">
+                                    关于我</p>
+                                <li class="layui-icon layui-icon-location" style="margin: 3px">
+                                    <font th:text="${session.get('userMessage').getUser_address()}"></font></li>
+                                <li class="layui-icon layui-icon-website" style="color: dodgerblue;margin: 3px">
+                                    <a style="cursor: pointer;color: dodgerblue" target="_blank"
+                                       th:href="${session.get('userMessage').getUser_website()}">
+                                    [[${session.get('userMessage').getUser_website()}]]</a></li>
+                                <p style="font-size: 15px;font-weight: lighter;font-family: serif;margin: 3px">
+                                    [[${session.get('userMessage').getUser_introduction()}]]
+                                </p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+<!--展示我收藏的课程-->
+            <div class="layui-col-md10 xuanzeqiYincang" id="courseP">
+                <div class="marginPanel" >
+                        <div class="layui-col-md6">
+                            <div style="width: 70%;margin-left: 15%;margin-top: 5px">
+                                <div class="layui-collapse" th:each="course:${session.get('collectCourse')}">
+                                    <div class="layui-colla-item">
+                                        <h1 class="layui-colla-title" style="font-size: 20px" th:text="${course.getCourse_name()}"></h1>
+                                        <div class="layui-colla-content">
+
+                                            <p class="fontBeau">课程的学分为：<font th:text="${course.getCourse_credit()}"></font></p>
+                                            <p class="fontBeau">课程的学习目标：<font th:text="${course.getCourse_goal()}"></font></p>
+
+                                            <br>
+                                            <i class="layui-icon layui-icon-time" style="cursor: pointer;color: #0c7cd5;font-size: 15px">
+                                                开始学习的时间：[[${course.getCollect_time()}]]</i><br>
+
+
+
+                                            <form method="get" action="/service/cancelCollect" class="layui-form">
+                                                <div class="layui-form-item" style="text-align:right;margin-right: 25px">
+                                                    <input type="text" name="course_id" th:value="${course.getCourse_id()}" style="display: none">
+                                                    <div class="layui-input-block">
+                                                        <button class="layui-btn layui-btn-sm" lay-submit lay-filter="formDemo">
+                                                            完成目标</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!--      修改个人信息--昵称、签名、网址和个人简介      -->
+            <div class="layui-col-md10 xuanzeqiYincang" id="messageP1">
+                <div class="marginPanel">
+                    <div class="layui-row layui-col-space15">
+                        <div class="layui-col-md6">
+                            <div class="layui-panel">
+                                <form class="layui-form" action="/service/changeUserName" method="get" style="width: 80%;margin-left: 10%">
+                                    <!--  输入框  -->
+                                    <div class="layui-form-item">
+                                        <div class="layui-input-block">
+                                            <i class="layui-icon layui-icon-username" style="margin: 3px;font-size: 25px;font-family: serif">修改昵称</i>
+                                            <input type="text" name="userName" required  lay-verify="required" placeholder="用户名"
+                                                   autocomplete="off" class="layui-input">
+                                        </div>
+                                    </div>
+                                    <!--提交-->
+                                    <div class="layui-form-item" style="text-align: center">
+                                        <div class="layui-input-block">
+                                            <button class="layui-btn layui-btn-normal" lay-submit lay-filter="formDemo">确认更改</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <form class="layui-form" action="/service/changeUserMessage" method="get" style="width: 80%;margin-left: 10%">
+                                    <!--  输入框  -->
+                                    <div class="layui-form-item">
+                                        <div class="layui-input-block">
+                                            <i class="layui-icon layui-icon-username" style="margin: 3px;font-size: 20px;font-family: serif">修改个性签名</i>
+                                            <input type="text" name="userSignature" required  lay-verify="required" placeholder="个性签名"
+                                                   autocomplete="off" class="layui-input">
+                                            <li class="layui-icon layui-icon-location" style="margin: 3px;font-size: 20px;font-family: serif">修改地址</li>
+                                            <input type="text" name="userAddress" required  lay-verify="required" placeholder="地址"
+                                                   autocomplete="off" class="layui-input">
+                                            <li class="layui-icon layui-icon-website" style="font-size: 20px;font-family: serif;margin: 3px">添加个人主页</li>
+                                            <input type="text" name="userWebsite" required  lay-verify="required" placeholder="个人主页"
+                                                   autocomplete="off" class="layui-input">
+
+                                            <!--文本框-->
+                                            <div class="layui-form-item layui-form-text" style="margin: 5px;width: 100%">
+                                                <label style="font-size: 20px;font-family: serif;margin: 3px">添加个人介绍（非必须）</label>
+
+                                                <div class="">
+                                                    <textarea name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
+                                                </div>
+                                            </div>
+
+                                            <!--提交-->
+                                            <div class="layui-form-item" style="text-align: center">
+                                                <div class="layui-input-block">
+                                                    <button class="layui-btn layui-btn-normal" lay-submit lay-filter="formDemo">确认更改</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!--       修改个人信息：头像     -->
+            <div class="layui-col-md10 xuanzeqiYincang" id="messageP2">
+                <div class="marginPanel">
+                    <div class="layui-row layui-col-space15">
+                        <div class="layui-col-md6" >
+                            <div class="layui-panel" style="text-align: center">
+
+                                <p style="font-size: 25px;font-weight: bolder;font-family: serif;margin: 5px">
+                                    请上传你的头像</p>
+
+                                <!--自动封装了一个name为file的参数对应上传的图片-->
+                                <div class="layui-upload">
+                                    <button type="button" class="layui-btn" id="updateImg">上传图片</button>
+                                    <div class="layui-upload-list">
+                                        <img class="layui-upload-img" id="avatar" style="width: 200px;height: 200px">
+                                        <p id="demoText"></p>
+                                    </div>
+                                    <div style="width: 95px;margin-left: 44%">
+                                        <div class="layui-progress layui-progress-big" lay-showpercent="yes" lay-filter="demo">
+                                            <div class="layui-progress-bar" lay-percent=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p style="font-size: 15px;font-weight: lighter;font-family: serif;margin: 3px">
+                                    图片的大小限制为500KB</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</html>
